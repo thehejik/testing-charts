@@ -6,4 +6,4 @@ spec:
   containers:
   - image: busybox
     name: '{{ .Chart.Name }}'
-    command: ['/bin/sh', '-c', 'while true; do date; sleep 3; done']
+    command: ['/bin/sh', '-c', 'while true; do date; sleep 5; done']
