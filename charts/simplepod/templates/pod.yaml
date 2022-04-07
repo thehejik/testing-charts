@@ -6,4 +6,4 @@ spec:
   containers:
   - image: busybox
     name: '{{ .Chart.Name }}'
-    command: ['/bin/sh', '-c', 'trap : TERM INT; sleep infinity & wait']
+    command: ['/bin/sh', '-c', 'trap : TERM INT; sleep 99999d & wait']
