@@ -14,4 +14,4 @@ name: epinio-custom-application
 sources:
 - https://github.com/epinio/helm-charts
 type: application
-version: 0.0.1
+version: 0.0.2
