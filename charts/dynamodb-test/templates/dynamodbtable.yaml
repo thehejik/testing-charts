@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: {{ .Release.Name }}-connection
+  namespace: {{ .Release.Namespace }}
+---
+apiVersion: awsblueprints.io/v1alpha1
+kind: DynamoDBTable
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  compositionSelector:
+    matchLabels:
+      awsblueprints.io/provider: aws
+      awsblueprints.io/environment: dev
+      dynamodb.awsblueprints.io/capacity: provisioned
+      dynamodb.awsblueprints.io/pkType: composite
+  publishConnectionDetailsTo:
+    name: {{ .Release.Name }}-connection
+    configRef:
+      name: default
+    metadata:
+      labels:
+        environment: production
+      annotations:
+        acme.example.io/secret-type: infrastructure
+  resourceConfig:
+    providerConfigName: aws-provider-config
+    region: eu-west-1
+    tags:
+      - key: env
+        value: test
+      - key: anotherKey
+        value: anotherValue
+  tableIndex:
+    hashKeyName: hashKey
+    hashKeyType: S
+    rangeKeyName: rangeKey
+    rangeKeyType: S
+  throughputConfig:
+    read: 7
+    write: 7
