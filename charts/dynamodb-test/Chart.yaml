@@ -1,3 +1,4 @@
 name: dynamodb-test
-version: 1.0.2
+version: 1.0.3
 apiVersion: v2
+appVersion: 1.0.0
