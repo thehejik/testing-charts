@@ -23,13 +23,6 @@ spec:
       dynamodb.awsblueprints.io/pkType: composite
   publishConnectionDetailsTo:
     name: {{ .Release.Name }}-connection
-    configRef:
-      name: default
-    metadata:
-      labels:
-        environment: production
-      annotations:
-        acme.example.io/secret-type: infrastructure
   resourceConfig:
     providerConfigName: aws-provider-config
     region: eu-west-1
