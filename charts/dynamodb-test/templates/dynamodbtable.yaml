@@ -23,10 +23,10 @@ spec:
       dynamodb.awsblueprints.io/pkType: composite
   publishConnectionDetailsTo:
     name: {{ .Release.Name }}-connection
-  resourceConfig:
-    providerConfigName: aws-provider-config
     configRef:
       name: default
+  resourceConfig:
+    providerConfigName: aws-provider-config
     region: eu-west-1
     tags:
       - key: env
