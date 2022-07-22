@@ -25,6 +25,8 @@ spec:
     name: {{ .Release.Name }}-connection
   resourceConfig:
     providerConfigName: aws-provider-config
+    configRef:
+      name: default
     region: eu-west-1
     tags:
       - key: env
