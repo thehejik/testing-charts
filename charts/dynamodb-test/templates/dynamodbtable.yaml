@@ -4,6 +4,9 @@ type: Opaque
 metadata:
   name: {{ .Release.Name }}-connection
   namespace: {{ .Release.Namespace }}
+  labels:
+    epinio.io/configuration: "true"
+    epinio.io/configuration-type: service
 ---
 apiVersion: awsblueprints.io/v1alpha1
 kind: DynamoDBTable
