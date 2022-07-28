@@ -1,46 +1,33 @@
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ .Release.Name }}-connection
-  namespace: {{ .Release.Namespace | quote }}
-  labels:
-    app.kubernetes.io/instance: {{ .Release.Name | quote }}
----
-apiVersion: awsblueprints.io/v1alpha1
-kind: DynamoDBTable
+apiVersion: dynamodb.aws.crossplane.io/v1alpha1
+kind: Table
 metadata:
   name: {{ .Release.Name | quote }}
   namespace: {{ .Release.Namespace | quote }}
   labels:
     app.kubernetes.io/instance: {{ .Release.Name | quote }}
 spec:
-  compositionSelector:
-    matchLabels:
-      awsblueprints.io/provider: aws
-      awsblueprints.io/environment: dev
-      dynamodb.awsblueprints.io/capacity: provisioned
-      dynamodb.awsblueprints.io/pkType: composite
   publishConnectionDetailsTo:
-    name: {{ .Release.Name }}-connection
+    name: {{ .Release.Name }}-conn
     metadata:
       labels:
-        app.kubernetes.io/instance: {{ .Release.Name | quote }}
-    configRef:
-      name: default
-  resourceConfig:
-    providerConfigName: aws-provider-config
+        app.kubernetes.io/instance: {{ .Release.Name | quote }} 
+  providerConfigRef:
+    name: aws-provider-config
+  forProvider:
     region: eu-west-1
     tags:
-      - key: env
-        value: test
-      - key: anotherKey
-        value: anotherValue
-  tableIndex:
-    hashKeyName: hashKey
-    hashKeyType: S
-    rangeKeyName: rangeKey
-    rangeKeyType: S
-  throughputConfig:
-    read: 7
-    write: 7
+    - key: env
+      value: test
+    attributeDefinitions:
+    - attributeName: Name
+      attributeType: S
+    - attributeName: Surname
+      attributeType: S
+    keySchema:
+    - attributeName: Name
+      keyType: HASH
+    - attributeName: Surname
+      keyType: RANGE
+    provisionedThroughput:
+      readCapacityUnits: 7
+      writeCapacityUnits: 7
