@@ -11,6 +11,8 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/instance: {{ .Release.Name | quote }} 
+      annotations:
+        kubed.appscode.com/sync: "kubernetes.io/metadata.name={{ .Release.Namespace }}"
   providerConfigRef:
     name: aws-provider-config
   forProvider:
