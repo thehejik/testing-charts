@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ .Release.Name }}-create
+  namespace: {{ .Release.Namespace }}
+spec:
+  ttlSecondsAfterFinished: 120
+  template:
+    spec:
+      containers:
+        - name: aws-cli
+          image: amazon/aws-cli
+          command: ["aws", "s3", "mb", "s3://{{ .Release.Name }}"]
+          volumeMounts:
+            - name: aws-cli-config
+              mountPath: /root/.aws
+      restartPolicy: Never
+      volumes:
+        - name: aws-cli-config
+          configMap:
+            name: {{ .Release.Name }}
+
