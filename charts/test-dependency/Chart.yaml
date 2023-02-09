@@ -1,4 +1,4 @@
-# A test-main chart comment
+# A test-dependency chart comment
 name: test-dependency
 version: 0.0.1
 apiVersion: v2
