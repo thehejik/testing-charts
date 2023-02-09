@@ -3,7 +3,6 @@ name: Release Drafter
 on:
   workflow_dispatch:
   pull_request:
-    types: [opened, reopened, synchronize]
   push:
     branches:
       - main
@@ -18,5 +17,6 @@ jobs:
       - uses: release-drafter/release-drafter@v5
         with:
           config-name: release-drafter.yml
+          disable-releaser: ${{ github.event_name == 'pull_request' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

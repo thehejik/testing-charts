@@ -39,7 +39,4 @@ version-resolver:
 autolabeler:
   - label: 'test-main'
     files:
-      - '/charts/test-main/**/*'
-  - label: 'bug'
-    files:
-      - '/charts/test-main/**/*'
+      - 'charts/test-main/'
