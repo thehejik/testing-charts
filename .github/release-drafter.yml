@@ -7,6 +7,17 @@ tag-prefix: test-main-
 change-template: '- $TITLE (#$NUMBER)'
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
 
+categories:
+  - title: 'test-main Chart'
+    labels:
+      - 'chart/test-main'
+  - title: 'test-dependency Chart'
+    labels:
+      - 'chart/test-dependency'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'bug'
+
 template: |
     # What's Changed
     
@@ -40,3 +51,6 @@ autolabeler:
   - label: 'chart/test-main'
     files:
       - 'charts/test-main/'
+  - label: 'chart/test-dependency'
+    files:
+      - 'charts/test-dependency/'
