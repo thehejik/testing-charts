@@ -37,6 +37,6 @@ version-resolver:
   default: patch
 
 autolabeler:
-  - label: 'test-main'
+  - label: 'chart/test-main'
     files:
       - 'charts/test-main/'
