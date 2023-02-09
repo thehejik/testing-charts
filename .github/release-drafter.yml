@@ -1,7 +1,7 @@
 
-name-template: 'test-main-v$RESOLVED_VERSION'
+name-template: 'test-main-$RESOLVED_VERSION'
 
-tag-template: 'test-main-v$RESOLVED_VERSION'
+tag-template: 'test-main-$RESOLVED_VERSION'
 tag-prefix: test-main-
 
 change-template: '- $TITLE (#$NUMBER)'
