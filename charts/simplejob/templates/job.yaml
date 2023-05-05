@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: '{{- printf "%s-%s" .Release.Name .Chart.Name | trunc 63 | trimSuffix "-" -}}'
+  namespace: '{{ .Release.Namespace }}'
+  annotations:
+    "helm.sh/hook": post-install
+spec:
+  ttlSecondsAfterFinished: 120
+  template:
+    spec:
+      containers:
+      - image: busybox
+        name: '{{ .Chart.Name }}'
+        command: ['/bin/sh', '-c', 'trap : TERM INT; sleep 99999d & wait']
+        restartPolicy: Never
