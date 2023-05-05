@@ -9,8 +9,8 @@ spec:
   ttlSecondsAfterFinished: 120
   template:
     spec:
+      restartPolicy: Never
       containers:
       - image: busybox
         name: '{{ .Chart.Name }}'
         command: ['/bin/sh', '-c', 'trap : TERM INT; sleep 99999d & wait']
-        restartPolicy: Never
