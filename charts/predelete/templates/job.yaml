@@ -1,11 +1,10 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ .Chart.Values.epinio.serviceName }}
+  name: j{{ .Values.epinio.serviceName }}-predel
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
     app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/name: {{ template "name" . }}-delete-hook
   annotations:
     # This is what defines this resource as a hook. Without this line, the
     # job is considered part of the release.
