@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ .Chart.Values.epinio.serviceName }}
+  labels:
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/name: {{ template "name" . }}-delete-hook
+  annotations:
+    # This is what defines this resource as a hook. Without this line, the
+    # job is considered part of the release.
+    "helm.sh/hook": pre-delete
+    #"helm.sh/hook-weight": "-5"
+    "helm.sh/hook-delete-policy": before-hook-creation
+    #"helm.sh/hook-delete-policy": hook-succeeded, hook-failed
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: "ajob"
+        image: "busybox"
+        command: ["sh", "-c", "exit 1;"]
+        env:
+        - name: MY_INSTANCE
+          value: {{ .Release.Name }}
+        - name: MY_NAMESPACE
+          value: {{ .Release.Namespace }}
