@@ -1,9 +1,9 @@
 # helm-chart-simplepod
 
-https://enrichman.github.io/helm-charts
+https://thehejik.github.io/testing-charts
 
 ## Usage
 
 ```
-helm repo add enrichman https://enrichman.github.io/helm-charts/
+helm repo add thehejik https://thehejik.github.io/testing-charts
 ```
