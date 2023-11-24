@@ -8,4 +8,12 @@ entries:
     urls:
     - https://github.com/thehejik/testing-charts/releases/download/simplejob-0.0.3/simplejob-0.0.3.tgz
     version: 0.0.3
-generated: "2023-11-24T12:44:19.796658246Z"
+  simplepod:
+  - apiVersion: v2
+    created: "2023-11-24T12:55:11.653401183Z"
+    digest: 1b427ebd4c37e0d1ee28e18088d3c3059e08fe5e4d1c4d151cf5e69adfa8453f
+    name: simplepod
+    urls:
+    - https://github.com/thehejik/testing-charts/releases/download/simplepod-0.0.3/simplepod-0.0.3.tgz
+    version: 0.0.3
+generated: "2023-11-24T12:55:11.653408277Z"
