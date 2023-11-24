@@ -1,6 +1,0 @@
-apiVersion: v2
-appVersion: 1.5.1
-description: A backing service for Epinio
-name: s3
-type: application
-version: 0.1.2
