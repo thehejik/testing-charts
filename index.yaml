@@ -1,0 +1,11 @@
+apiVersion: v1
+entries:
+  simplejob:
+  - apiVersion: v2
+    created: "2023-11-24T12:44:19.796648428Z"
+    digest: 17754c6531298a4b55e3f16be20196302c1ddc8920cb65d750806e83e02f7773
+    name: simplejob
+    urls:
+    - https://github.com/thehejik/testing-charts/releases/download/simplejob-0.0.3/simplejob-0.0.3.tgz
+    version: 0.0.3
+generated: "2023-11-24T12:44:19.796658246Z"
