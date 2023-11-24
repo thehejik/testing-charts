@@ -10,10 +10,17 @@ entries:
     version: 0.0.3
   simplepod:
   - apiVersion: v2
+    created: "2023-11-24T12:57:53.615988914Z"
+    digest: c9b23a9111e657d48917fa49d7ba69493687d4b2adde0ce8c65c3f2dc61e5a63
+    name: simplepod
+    urls:
+    - https://github.com/thehejik/testing-charts/releases/download/simplepod-0.0.4/simplepod-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v2
     created: "2023-11-24T12:55:11.653401183Z"
     digest: 1b427ebd4c37e0d1ee28e18088d3c3059e08fe5e4d1c4d151cf5e69adfa8453f
     name: simplepod
     urls:
     - https://github.com/thehejik/testing-charts/releases/download/simplepod-0.0.3/simplepod-0.0.3.tgz
     version: 0.0.3
-generated: "2023-11-24T12:55:11.653408277Z"
+generated: "2023-11-24T12:57:53.616386624Z"
